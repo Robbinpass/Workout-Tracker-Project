@@ -1,0 +1,51 @@
+<body >
+<div class="d-flex justify-content-around flex-column">
+    <header class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+        <h1>
+            <a>Workout Tracker</a>
+        </h1>
+        <nav>
+            <a>Logout (depends on where the user is)</a>
+        </nav>
+    </header>
+
+    <main class="d-flex flex-column">
+        <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+            <h2>Welcome, {{user.first_name}} {{user.last_name}}</h2>
+            <button type="button" class="btn btn-primary">New workout</button>
+        </div>
+        <div name="saved-workout-list" class="d-flex flex-column">
+            {{#each workouts as |workout|}}
+            <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+                <div class="d-flex flex-row justify-content-between align-items-center p-2"></div>
+                    <h3>{{workout.name}}</h3>
+                    <button type="button" class="btn btn-primary">View</button>
+                </div>
+                <div>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th scope="col">Exercise</th>
+                                <th scope="col">Weight</th>
+                                <th scope="col">Sets</th>
+                                <th scope="col">Reps</th>
+                            </tr>
+                        </thead>
+                        {{#each workout.exercises as |exercise|}}
+                        <tbody>
+                            <tr>
+                                <th scope="row">{{exercise.name}}</th>
+                                <td>{{exercise.weight}}</td>
+                                <td>{{exercise.sets}}</td>
+                                <td>{{exercise.reps}}</td>
+                            </tr>
+                        </tbody>
+                        {{/each}}
+                    </table>
+                </div>
+            </div>
+            {{/each}}
+        </div> 
+    </main>
+</div>
+</body>
