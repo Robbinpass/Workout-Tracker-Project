@@ -32,7 +32,9 @@ function topices() {
             name: "gym",
             choices: [
                 "new member",
-                "exercise"
+                "exercise",
+                "add member",
+                "add exercise"
             ]
         }
 
@@ -44,8 +46,14 @@ function topices() {
             case "exercise":
                 viewExercise();
                 break;
-                default:
-                    process.exit();
-            }
-        }).catch(err => console.error(err));
-    }
+            case "add member":
+                addMember();
+                break;
+            case "add exercise":
+                addExercise();
+                break;
+            default:
+                process.exit();
+        }
+    }).catch(err => console.error(err));
+}
