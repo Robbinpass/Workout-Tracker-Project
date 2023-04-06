@@ -9,10 +9,10 @@ const db = mysql.createConnection(
         user: 'root',
         // MySQL password
         password: 'Dragonseye3$',
-        database: 'PROJECT'
+        database: 'workout_db'
     },
     //testing the connection
-    console.log(`Connected to the PROJECT database.`)
+    console.log(`Connected to the workout_db database.`)
 );
 
 db.query("SELECT * FROM people", (err, result) => {
@@ -39,7 +39,7 @@ function topices() {
         }
 
     ]).then(answers => {
-        switch (answers.company) {
+        switch (answers.gym) {
             case "new member":
                 viewMember();
                 break;
@@ -97,25 +97,20 @@ const addMember = () => {
             {
                 type: "input",
                 message: "Please enter you password name?",
-                name: "Password"
+                name: "Passwords"
             }
         ]).then(answers => {
             //put your answers in the table in department in the group name
-            db.query(`INSERT INTO people(First_name, Last_name, Username, Password)
-                    VALUES(?)`, answers.addMember, (err, results) => {
+            db.query("INSERT INTO people(First_name, Last_name, Username, Passwords) VALUES(?,?,?,?)", [answers.First_name, answers.Last_name, answers.Username, answers.Passwords],(err, results) => {
                         //show the answer in the department // if there an error console it
-                if (err) {
-                    console.log(err)
-                } else {
-                    //goes to the database and select (* all) from the department table
-                    db.query(`SELECT * FROM people`, (err, results) => {
-                        // if error (? or) console error stop but if success put it in a table format
                         err ? console.error(err) : console.table(results);
-
-                    })
-                }
             }
             )
+            db.query(`SELECT * FROM people`, (err, results) => {
+                // if error (? or) console error stop but if success put it in a table format
+                err ? console.error(err) : console.table(results);
+            
+        })
         })
         return null
 };
@@ -142,29 +137,28 @@ const addExercise = () => {
                 name: "Lifting_Weight"
             },
             {
-                type: "list",
+                type: "input",
                 message: "How many Reps do you want to do?",
-                name: "Reps",
+                name: "Reps"
             },
             {
-                type: "list",
+                type: "input",
                 message: "How many Sets do you want to do?",
-                name: "Sets",
+                name: "Sets"
             }
         ]).then(answers => {
-            // move the id from department and moves it to department_id
-           // db.promise().query(`SELECT id FROM department WHERE name = ?`, answers.Department)
-                // .then(answer => {
-                //     let mappedId = answer[0].map(obj => obj.id);
-                //     // console.log(mappedId[0])
-                //     return mappedId[0]
-                // })
-        //         .then((mappedId) => {
-        //             //the answers from above gets put into the chart
-        //             db.promise().query(`INSERT INTO roles(title, salary, department_id)
-        //         VALUES(?, ?, ?)`, [answers.Title, answers.Salary, mappedId]);
-
-        //         })
+            //put your answers in the table in department in the group name
+            console.log(answers)
+            db.query("INSERT INTO exercise(Target_Muscles, Lifting_Weight, Reps, Sets) VALUES(?,?,?,?)", [answers.Target_Muscles, answers.Lifting_Weight, answers.Reps, answers.Sets],(err, results) => {
+                        //show the answer in the department // if there an error console it
+                        err ? console.error(err) : console.table(results);
+            }
+            )
+            db.query(`SELECT * FROM exercise`, (err, results) => {
+                // if error (? or) console error stop but if success put it in a table format
+                err ? console.error(err) : console.table(results);
+            
         })
-        return console.log("added new role!")
-        };
+        })
+        return null
+};
