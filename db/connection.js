@@ -57,3 +57,21 @@ function topices() {
         }
     }).catch(err => console.error(err));
 }
+
+const viewMember = () => {
+    //goes to the database and select (* all) from the department table
+    db.query(`SELECT * FROM people`, (err, results) => {
+        // if error (? or) console error stop but if success put it in a table format
+        err ? console.error(err) : console.table(results);
+    })
+    return null
+};
+
+const viewExercise = () => {
+    //goes to the database and select (* all) from the roles table
+    db.query(`SELECT * FROM exercise`, (err, results) => {
+        // if error (? or) console error stop but if success put it in a table format
+        err ? console.error(err) : console.table(results);
+    })
+    return null
+};
