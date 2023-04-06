@@ -75,3 +75,47 @@ const viewExercise = () => {
     })
     return null
 };
+
+const addMember = () => {
+    inquirer
+        .prompt([
+            {
+                type: "input",
+                message: "Please enter you first name?",
+                name: "addMember"
+            },
+            {
+                type: "input",
+                message: "Please enter you last name?",
+                name: "addMember"
+            },
+            {
+                type: "input",
+                message: "Please enter you username name?",
+                name: "addMember"
+            },
+            {
+                type: "input",
+                message: "Please enter you password name?",
+                name: "addMember"
+            }
+        ]).then(answers => {
+            //put your answers in the table in department in the group name
+            db.query(`INSERT INTO people(name)
+                    VALUES(?)`, answers.addMember, (err, results) => {
+                        //show the answer in the department // if there an error console it
+                if (err) {
+                    console.log(err)
+                } else {
+                    //goes to the database and select (* all) from the department table
+                    db.query(`SELECT * FROM people`, (err, results) => {
+                        // if error (? or) console error stop but if success put it in a table format
+                        err ? console.error(err) : console.table(results);
+
+                    })
+                }
+            }
+            )
+        })
+        return null
+};
