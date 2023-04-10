@@ -14,6 +14,7 @@ CREATE TABLE people (
 CREATE TABLE exercise (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     People_id INT,
+    Exercise_name VARCHAR(30) NOT NULL,
     Target_Muscles VARCHAR(30) NOT NULL,
     Lifting_Weight INT,
     Reps INT NOT NULL,
