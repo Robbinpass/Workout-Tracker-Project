@@ -1,11 +1,11 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-// create our Traveller model
-class user extends Model {}
+
+class exercise extends Model {}
 
 
-user.init(
+exercise.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -13,37 +13,41 @@ user.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    firstName: {
+
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    lastName: {
-      type: DataTypes.STRING,
+
+    weight: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    
+    },
+
+    sets: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
-    email: {
-      type: DataTypes.STRING,
+
+    reps: {
+      type: DataTypes.INTEGER,
       allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true,
-      },
+      primaryKey: true,
+      autoIncrement: true,
     },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [8],
-      },
+
+
+    // fields for muscle group, weight, reps, name
+
   },
-},
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user'
+    modelName: 'exercise'
   }
 );
 
-module.exports = user;
+module.exports = exercise;
