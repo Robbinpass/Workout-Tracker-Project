@@ -49,9 +49,9 @@ const signupFormHandler = async (event) => {
 
 //Add in relevent IDs/classes once we know what they are
 document
-    .querySelector('')
+    .querySelector('#login')
     .addEventListener('submit', loginFormHandler);
 
 document
-    .querySelector('')
+    .querySelector('#signup')
     .addEventListener('submit', signupFormHandler);
