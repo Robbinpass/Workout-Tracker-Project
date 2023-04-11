@@ -21,12 +21,12 @@
             <nav>
               <a>
                 {{#if landing_page}}
-                <a href="url to login page">login or signup</a>
+                <a href="/login">login or signup</a>
                 {{else if login_page}}
-                <a href="url to landing page">cancel</a>
+                <a href="/">cancel</a>
                 {{else if profile_page}}
-                <a href="url to logout route">logout</a>
-                {{else if workout_page}}
+                <a href="/logout">logout</a>
+                {{else}}
                 <a href="url to profile page">cancel this workout</a>
                 {{/if}}
               </a>
