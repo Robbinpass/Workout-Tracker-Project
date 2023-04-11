@@ -1,10 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-
-
 class exercise extends Model {}
-
-
 exercise.init(
   {
     id: {
@@ -33,12 +29,8 @@ exercise.init(
     reps: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
     },
 
-
-    // fields for muscle group, weight, reps, name
 
   },
   {

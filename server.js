@@ -2,8 +2,8 @@ const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const path = require('path');
-const routes = require('./constrollers');
-const helpers = require('./utils/helpers')
+const routes = require('./routes');
+const helpers = require('./utils/helpers');
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -17,6 +17,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const hbs = exphbs.create({ helpers });
 
+// created options object for your session
+const sess = {
+    secret: 'Exercise is good for you!',
+    resave: false,
+    saveUninitialized: false,
+  };
 app.use(session(sess));
 
 app.engine('handlebars', hbs.engine);
