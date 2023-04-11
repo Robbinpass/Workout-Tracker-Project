@@ -17,6 +17,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const hbs = exphbs.create({ helpers });
 
+
+
 app.use(session(sess));
 
 app.engine('handlebars', hbs.engine);

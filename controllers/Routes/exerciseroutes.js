@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const exercise = require('js/models/exercise');
+// const exercise = require('js/models/exercise');
 const exercise = require('../../js/models/exercise');
 
 // Exercise search by name

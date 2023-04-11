@@ -1,5 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+// const sequelize = require('../config/connection');
+const sequelize = require('../../config/connection.js');
+
 
 
 class exercise extends Model {}
@@ -33,8 +35,6 @@ exercise.init(
     reps: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
     },
 
 
