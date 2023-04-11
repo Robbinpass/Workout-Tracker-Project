@@ -1,16 +1,14 @@
 const loginFormHandler = async (event) => {
     event.preventDefault();
 
-    //Make sure to add in the relevent IDs or logins will not work!!
-    const email = document.querySelector('').value.trim();
-    const password = document.querySelector('').value.trim();
+    const email = document.querySelector('#email').value.trim();
+    const password = document.querySelector('#password').value.trim();
 
     if (email && password) {
-        //"login" is a placeholder. Change it if we go with something else
-        const response = await fetch('/login', {
+        const response = await fetch('/api/login', {
             method: 'POST',
             body: JSON.stringify({ email, password }),
-            headers: { 'Content-type': 'application/json' },
+            headers: { 'Content-Type': 'application/json' },
         });
 
         if (response.ok) {
@@ -25,17 +23,16 @@ const loginFormHandler = async (event) => {
 const signupFormHandler = async (event) => {
     event.preventDefault();
 
-    //Once again, add the IDs once we know what they are or this will not work!!
-    const name = document.querySelector('').value.trim();
-    const email = document.querySelector('').value.trim();
-    const password = document.querySelector('').value.trim();
+    const firstName = document.querySelector('#firstName').value.trim();
+    const lastName = document.querySelector('#lastName').value.trim();
+    const email = document.querySelector('#email').value.trim();
+    const password = document.querySelector('#password').value.trim();
 
-    if (name && email && password) {
-        //signup is a placeholder. Change it if we go with something else.
-        const response = await fetch('/signup', {
+    if (firstName && lastName && email && password) {
+        const response = await fetch('/api/signup', {
             method: 'POST',
-            body: JSON.stringify({ name, email, password }),
-            headers: { 'content type': 'application/json' },
+            body: JSON.stringify({ firstName, lastName, email, password }),
+            headers: { 'Content-Type': 'application/json' },
         });
 
         if (response.ok) {
@@ -47,7 +44,6 @@ const signupFormHandler = async (event) => {
     }
 };
 
-//Add in relevent IDs/classes once we know what they are
 document
     .querySelector('#login')
     .addEventListener('submit', loginFormHandler);
