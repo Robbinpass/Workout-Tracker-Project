@@ -13,16 +13,16 @@ const newWorkoutFormHandler = async (event) => {
   const upperBodyPullSets = document.querySelector('#ubpullSets').value.trim();
   const upperBodyPullReps = document.querySelector('#ubpullReps').value.trim();
 
-  const lowerBodyPushName = document.querySelector('#lbName').value.trim();
-  const lowerBodyPushWeight = document.querySelector('#lbWeight').value.trim();
-  const lowerBodyPushSets = document.querySelector('#lbSets').value.trim();
-  const lowerBodyPushReps = document.querySelector('#lbReps').value.trim();
+  const lowerBodyName = document.querySelector('#lbName').value.trim();
+  const lowerBodyWeight = document.querySelector('#lbWeight').value.trim();
+  const lowerBodySets = document.querySelector('#lbSets').value.trim();
+  const lowerBodyReps = document.querySelector('#lbReps').value.trim();
 
 
-  if (workoutName && upperBodyPushName && upperBodyPushWeight && upperBodyPullSets && upperBodyPullReps && upperBodyPullName && upperBodyPullWeight && upperBodyPullSets && upperBodyPullReps && lowerBodyPushName && lowerBodyPushWeight && lowerBodyPushSets && lowerBodyPushReps) {
+  if (workoutName && upperBodyPushName && upperBodyPushWeight && upperBodyPullSets && upperBodyPullReps && upperBodyPullName && upperBodyPullWeight && upperBodyPullSets && upperBodyPullReps && lowerBodyName && lowerBodyWeight && lowerBodySets && lowerBodyReps) {
       const response = await fetch('/workouts/create', {
           method: 'POST',
-          body: JSON.stringify({workoutName, upperBodyPushName, upperBodyPushWeight, upperBodyPushSets, upperBodyPushReps, upperBodyPullName, upperBodyPullWeight, upperBodyPullSets, upperBodyPullReps, lowerBodyPushName, lowerBodyPushWeight, lowerBodyPushSets, lowerBodyPushReps }),
+          body: JSON.stringify({workoutName, upperBodyPushName, upperBodyPushWeight, upperBodyPushSets, upperBodyPushReps, upperBodyPullName, upperBodyPullWeight, upperBodyPullSets, upperBodyPullReps, lowerBodyName, lowerBodyWeight, lowerBodySets, lowerBodyReps }),
           headers: { 'Content-Type': 'application/json' },
       });
 

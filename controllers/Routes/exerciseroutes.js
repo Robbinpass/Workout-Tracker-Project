@@ -1,6 +1,6 @@
 const router = require('express').Router();
 // const exercise = require('js/models/exercise');
-const exercise = require('../../js/models/exercise');
+const workout = require('../../js/models/workout');
 
 // Exercise search by name
 router.get('/:name', async (req,res) => {
