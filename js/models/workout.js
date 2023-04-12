@@ -6,11 +6,16 @@ class workout extends Model {}
 
 workout.init(
   {
+    workout_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     workoutName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-
     upperBodyPushName: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -58,7 +63,14 @@ workout.init(
     lowerBodyReps: {
       type: DataTypes.INTEGER,
       allowNull: false,
-    }
+    },
+    // user_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: 'user',
+    //     key: 'id',
+    //   }
+    // }
   },
   {
     sequelize,

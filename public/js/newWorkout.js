@@ -20,7 +20,7 @@ const newWorkoutFormHandler = async (event) => {
 
 
   if (workoutName && upperBodyPushName && upperBodyPushWeight && upperBodyPullSets && upperBodyPullReps && upperBodyPullName && upperBodyPullWeight && upperBodyPullSets && upperBodyPullReps && lowerBodyName && lowerBodyWeight && lowerBodySets && lowerBodyReps) {
-      const response = await fetch('/workouts/create', {
+      const response = await fetch('/exercise/create', {
           method: 'POST',
           body: JSON.stringify({workoutName, upperBodyPushName, upperBodyPushWeight, upperBodyPushSets, upperBodyPushReps, upperBodyPullName, upperBodyPullWeight, upperBodyPullSets, upperBodyPullReps, lowerBodyName, lowerBodyWeight, lowerBodySets, lowerBodyReps }),
           headers: { 'Content-Type': 'application/json' },
