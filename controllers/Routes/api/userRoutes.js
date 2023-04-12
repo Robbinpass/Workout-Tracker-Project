@@ -1,8 +1,10 @@
 const router = require('express').Router();
-const { user } = require('../../../js/models/user.js');
+const  user  = require('../../../js/models/user.js');
 
 router.post('/signup', async (req, res) => {
     try {
+        console.log("printing req.body for user signup route",req.body);
+        console.log(user);
         const userData = await user.create(req.body);
         
         req.session.save(() => {
@@ -12,6 +14,7 @@ router.post('/signup', async (req, res) => {
             res.status(200).json(userData);
         });
     } catch (err) {
+        console.log(err);
         res.status(400).json(err);
     }
 });
@@ -27,7 +30,7 @@ router.post('/login', async (req, res) => {
             return;
         }
 
-        const validPassword = await userData.checkPassword(req.body.password);
+        const validPassword = req.body.password == userData.password //await userData.checkPassword(req.body.password);
 
         if (!validPassword) {
             res
