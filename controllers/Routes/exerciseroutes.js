@@ -1,6 +1,6 @@
 const router = require('express').Router();
 // const exercise = require('js/models/exercise');
-const exercise = require('../../js/models/exercise');
+const workout = require('../../js/models/workout');
 
 // Exercise search by name
 router.get('/:name', async (req,res) => {
@@ -16,16 +16,15 @@ router.get('/:name', async (req,res) => {
     }
 });
 
-router.post('/', async (req,res) => {
+router.post('/create', async (req,res) => {
     try {
-        const newExercise = await exercise.create({
-          id: req.body.id,
-          name: req.body.name,
-          weight: req.body.weight,
-          sets: req.body.sets,
-          reps: req.body.reps,
+        const newWorkout = await workout.create({
+          name: req.body.workoutName,
+        //   weight: req.body.weight,
+        //   sets: req.body.sets,
+        //   reps: req.body.reps,
         });
-        res.status(200).json(newExercise);
+        res.status(200).json(newWorkout);
     } catch (err) {
         res.status(400).json(err);
     }
