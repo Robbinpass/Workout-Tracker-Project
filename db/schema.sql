@@ -3,7 +3,7 @@ CREATE DATABASE workout_db;
 
 USE workout_db;
 
-CREATE TABLE people (
+CREATE TABLE user (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   First_name VARCHAR(30) NOT NULL,
   Last_name VARCHAR(30) NOT NULL,
