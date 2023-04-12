@@ -7,7 +7,7 @@ router.get('/:name', async (req,res) => {
     try {
         const exercisePull = await exercise.findbyPk(req.params.name);
         if (!exercisePull) {
-            res.status(404).json({message: 'No excercise with this name!' });
+            res.status(404).json({message: 'No exercise with this name!' });
             return;
         }
         res.status(200).json(exercise);    
