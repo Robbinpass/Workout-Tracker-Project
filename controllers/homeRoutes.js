@@ -32,5 +32,15 @@ router.get('/new', async (req, res) => {
     }
 });
 
+router.get('/profile', async (req, res) => {
+    try {
+        res.render('profile', { 
+        profile_page: true,
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 
 module.exports = router;
