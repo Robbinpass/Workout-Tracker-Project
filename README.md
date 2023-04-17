@@ -4,13 +4,6 @@
 This is the second project for the Rutgers Coding Bootcamp. We are required to create, read, and update the charts. We have to have the users log in and out for the users pre-existing account plus a way for any new people to sign up. When anybody signs up in there account they won't be able to have access to other peoples accounts.
 
 
-## User Story
-```md
-As a gym owner
-I want to be able to help my empolyee and custorm have some struter with there workout route and keep track of it.
-So that thing can run smoother
-```
-
 ## Acceptance Criteria
 ```md
  -->
